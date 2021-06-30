@@ -1,0 +1,47 @@
+.majorcontainer{
+  
+    padding-top:10vh;
+     display: flex;
+ flex-direction: column;
+ gap: 2.5vh;
+ justify-content: center;
+ /* align-items: center; */
+}
+.card{
+    
+    margin-left: 22vw;
+    width: 38.52vw;
+    border: 1px solid grey;
+    height:121.5vh;
+}
+.head{
+    padding: 1.5vh;
+    display: flex;
+    gap: 1vh;
+}
+.profileimg{
+    border-radius: 50%;
+    width: 2vw;
+    height: 4vh;
+}
+.Profiledetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: baseline;
+}
+.username , .postloc{
+    margin: 0px;
+    text-align: left;
+    line-height: 2.2vh;
+    text-align: baseline;
+}
+.username{
+    color: #535353;
+    font-size: 1.5vh;
+}
+.postloc{
+    color: #636363;
+    font-size: 1.5vh;
+    font-weight: 450;
+}
