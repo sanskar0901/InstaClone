@@ -161,7 +161,7 @@
 .inpcmt{
     width: 32vw;
     border: 0;
-    height: 5vh;
+    height: 3vh;
 }
 .inpcmt:focus{
     outline: 0;
