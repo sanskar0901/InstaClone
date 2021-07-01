@@ -2,8 +2,8 @@ import React from 'react';
 import Styles from './Navbar.module.css';
 import HomeIcon from '@material-ui/icons/Home';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleLeft, faArrowRight, faComment, faHome, faMagic, faRandom, faRetweet, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { faArrowAltCircleRight, faCompass, far, faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faArrowRight, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faCompass, faHeart } from '@fortawesome/free-regular-svg-icons'
 
 function Navbar() {
     return (
