@@ -137,6 +137,9 @@
     font-weight: 600;
     color: #777676;
 }
+.comments{
+    height: 7vh;
+}
 .time{
     padding: 0.5vh;
     padding-left: 1vw;
