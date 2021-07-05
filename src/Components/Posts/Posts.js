@@ -6,7 +6,7 @@ import { db } from '../firebaseconfig'
 
 
 
-function Posts() {
+function Posts({ User }) {
     const [Posts, setPosts] = useState([
         // {
         //     profilepic: "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=0d3f33fb6aa6e0154b7713a00454c83d",
@@ -57,7 +57,7 @@ function Posts() {
     ])
     console.log(Posts);
     useEffect(() => {
-        db.collection('posts').onSnapshot(snapshot => {
+        db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
             setPosts(snapshot.docs.map(doc => ({
                 id: doc.id,
                 post: doc.data()
@@ -69,7 +69,7 @@ function Posts() {
     return (
         <div className={Styles.majorcontainer}>
             {Posts.map(({ id, post }) => (
-                <Card key={id} post={post} />
+                <Card key={id} postid={id} post={post} User={User} />
             ))}
 
 

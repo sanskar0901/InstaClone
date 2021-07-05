@@ -138,6 +138,7 @@
     color: #777676;
 }
 .comments{
+    overflow:auto;
     height: 7vh;
 }
 .time{

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import firebase from "firebase";
+import firebase from "firebase";
 import Styles from './Postuploder.module.css';
 import { Input, Button, } from '@material-ui/core';
 import { db, storage } from '../firebaseconfig'
@@ -35,7 +35,7 @@ function PostUploader({ username }) {
                     .getDownloadURL()
                     .then(url => {
                         db.collection("posts").add({
-                            // timestamp: firebase.firestore.FieldValue.serverTimestamp,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             caption: Caption,
                             username: username,
                             profilepic: profilepic,

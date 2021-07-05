@@ -7,7 +7,7 @@ import { auth } from '../firebaseconfig';
 import PostUploader from '../postupload/PostUploader'
 
 
-function Sidebar() {
+function Sidebar({ User, setUser }) {
     function getModalStyle() {
         const top = 50;
         const left = 50;
@@ -55,7 +55,7 @@ function Sidebar() {
     const [Password, setPassword] = useState('')
     const [Open, setOpen] = useState(false)
     const [Login, setLogin] = useState(false)
-    const [User, setUser] = useState(null)
+
 
 
     const signup = (e) => {
@@ -95,7 +95,7 @@ function Sidebar() {
         return () => {
             unsync();
         }
-    }, [User])
+    }, [User, setUser])
     return (
 
         <div className={Styles.majorcontainer}>

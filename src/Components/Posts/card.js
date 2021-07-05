@@ -1,13 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Styles from './Card.module.css'
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import SendIcon from '@material-ui/icons/Send';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faHeart, faBookmark } from '@fortawesome/free-regular-svg-icons';
 import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
+import { db } from '../firebaseconfig';
+import firebase from 'firebase';
 
-function Card({ post }) {
-    const [comment, setcomment] = useState('')
+function Card({ post, postid, User }) {
+    const [comment, setcomment] = useState('');
+    const [Comment, setComment] = useState('')
+    useEffect(() => {
+        let unsubscribe;
+        if (postid) {
+            unsubscribe = db
+                .collection("posts")
+                .doc(postid)
+                .collection("comments")
+                .orderBy('time', 'desc')
+                .onSnapshot((snapshot) => {
+                    setcomment(snapshot.docs.map((doc) => doc.data()))
+                })
+        }
+        return () => {
+            unsubscribe();
+        }
+    }, [postid])
+
+    const addComment = (e) => {
+        e.preventDefault();
+        db.collection("posts").doc(postid).collection("comments").add({
+
+            username: User.displayName,
+            comment: Comment,
+            time: firebase.firestore.FieldValue.serverTimestamp(),
+
+        });
+        setComment('')
+    }
+
 
     return (
         <div>
@@ -49,9 +81,9 @@ function Card({ post }) {
                     <div className={Styles.viewall}>View all comments</div>
                     <div className={Styles.comments}>
                         {
-                            post.comments ?
+                            comment ?
 
-                                post.comments.map(comment => (
+                                comment.map(comment => (
                                     <div className={Styles.user}><span className={Styles.high}>{comment.username} </span>{comment.comment}</div>
 
                                 )) :
@@ -63,11 +95,11 @@ function Card({ post }) {
                     <div className={Styles.time}>6 HOUR AGO</div>
                     <div className={Styles.commentbox}>
                         <EmojiEmotionsOutlinedIcon />
-                        <input class={Styles.inpcmt} type="text" placeholder="Add a comment.." required
+                        <input class={Styles.inpcmt} type="text" placeholder="Add a comment.." value={Comment} required
                             onChange={(e) => {
-                                setcomment(e.target.value)
+                                setComment(e.target.value)
                             }} />
-                        <button className={Styles.cmtpostbtn} disabled={!comment}>Post</button>
+                        <button className={Styles.cmtpostbtn} disabled={!Comment} onClick={addComment}>Post</button>
                     </div>
                 </div>
 
