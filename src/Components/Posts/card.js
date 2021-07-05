@@ -49,11 +49,14 @@ function Card({ post }) {
                     <div className={Styles.viewall}>View all comments</div>
                     <div className={Styles.comments}>
                         {
-                            post.comments.map(comment => (
-                                <div className={Styles.user}><span className={Styles.high}>{comment.username} </span>{comment.comment}</div>
+                            post.comments ?
 
-                            ))
-                        }
+                                post.comments.map(comment => (
+                                    <div className={Styles.user}><span className={Styles.high}>{comment.username} </span>{comment.comment}</div>
+
+                                )) :
+                                <div></div>}
+
                         {/* <div className={Styles.user}><span className={Styles.high}>Username </span>Too cute ❤️❤️</div>
                         <div className={Styles.user}><span className={Styles.high}>Username </span>Wowwwww So Cutieee ❤❤❤❤❤❤</div> */}
                     </div>

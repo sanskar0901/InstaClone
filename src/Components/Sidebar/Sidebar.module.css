@@ -1,0 +1,10 @@
+.majorcontainer{
+    display: flex;
+    margin-top:10vh;
+    flex-direction: column;
+    width: 20vw;
+}
+.Button{
+    display: flex;
+    flex-direction: row;
+}
