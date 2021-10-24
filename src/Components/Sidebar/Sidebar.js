@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Input } from '@material-ui/core';
 import { auth } from '../firebaseconfig';
-import PostUploader from '../postupload/PostUploader'
+import PostUploader from '../Postupload/PostUploader'
 
 
 function Sidebar({ User, setUser }) {
