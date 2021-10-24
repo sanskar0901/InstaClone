@@ -10,7 +10,7 @@ import firebase from 'firebase';
 
 function Card({ post, postid, User }) {
     const [comment, setcomment] = useState('');
-    const [Comment, setComment] = useState('')
+    const [Comment, setComment] = useState('');
     useEffect(() => {
         let unsubscribe;
         if (postid) {
@@ -31,13 +31,11 @@ function Card({ post, postid, User }) {
     const addComment = (e) => {
         e.preventDefault();
         db.collection("posts").doc(postid).collection("comments").add({
-
             username: User.displayName,
             comment: Comment,
             time: firebase.firestore.FieldValue.serverTimestamp(),
-
         });
-        setComment('')
+        setComment('');
     }
 
 
@@ -64,8 +62,6 @@ function Card({ post, postid, User }) {
                             <FontAwesomeIcon className={Styles.ico} icon={faHeart} />
                             <FontAwesomeIcon className={Styles.ico} icon={faComment} />
                             <SendIcon className={Styles.ico} />
-
-
                         </div>
                         <FontAwesomeIcon className={Styles.ico} icon={faBookmark} />
                     </div>
@@ -82,10 +78,8 @@ function Card({ post, postid, User }) {
                     <div className={Styles.comments}>
                         {
                             comment ?
-
                                 comment.map(comment => (
                                     <div className={Styles.user}><span className={Styles.high}>{comment.username} </span>{comment.comment}</div>
-
                                 )) :
                                 <div></div>}
 
@@ -102,10 +96,9 @@ function Card({ post, postid, User }) {
                         <button className={Styles.cmtpostbtn} disabled={!Comment} onClick={addComment}>Post</button>
                     </div>
                 </div>
-
             </div>
         </div>
     )
 }
 
-export default Card
+export default Card;

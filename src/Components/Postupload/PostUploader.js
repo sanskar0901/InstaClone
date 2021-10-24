@@ -45,14 +45,13 @@ function PostUploader({ username }) {
                         setProgress(0);
                         setCaption('');
                         setImage('');
-                        setLocation('')
-                    })
+                        setLocation('');
+                    });
             }
-        )
+        );
     }
     return (
         <div className={Styles.container}>
-
             <input type="file" onChange={fileupload}></input>
             <Input type="text" placeholder="Enter Location..." value={Location}
                 onChange={(e) => {
@@ -68,4 +67,4 @@ function PostUploader({ username }) {
     )
 }
 
-export default PostUploader
+export default PostUploader;
