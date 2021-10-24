@@ -8,3 +8,6 @@
     display: flex;
     flex-direction: row;
 }
+.buttongroup{
+    display:flex;
+    flex-direction:row;}
