@@ -41,22 +41,15 @@ function Sidebar({ User, setUser }) {
             flexDirection: 'column'
 
         }
-
-
     }));
 
-
-
-
     const classes = useStyles();
-    const { modalStyle } = useState(getModalStyle)
-    const [Email, setEmail] = useState('')
-    const [Username, setUsername] = useState('')
-    const [Password, setPassword] = useState('')
-    const [Open, setOpen] = useState(false)
-    const [Login, setLogin] = useState(false)
-
-
+    const { modalStyle } = useState(getModalStyle);
+    const [Email, setEmail] = useState('');
+    const [Username, setUsername] = useState('');
+    const [Password, setPassword] = useState('');
+    const [Open, setOpen] = useState(false);
+    const [Login, setLogin] = useState(false);
 
     const signup = (e) => {
         e.preventDefault();
@@ -67,18 +60,16 @@ function Sidebar({ User, setUser }) {
                 })
 
             })
-
             .catch((err) => window.alert('error:' + err))
-        setOpen(false)
+        setOpen(false);
     }
+
     const login = () => {
         auth.signInWithEmailAndPassword(Email, Password)
             .then(() => window.alert('logedin'))
             .catch((err) => window.alert(err))
         setLogin(false)
     }
-
-
 
     useEffect(() => {
         const unsync = auth.onAuthStateChanged((authUser) => {
@@ -91,13 +82,12 @@ function Sidebar({ User, setUser }) {
             else {
                 setUser(null)
             }
-        })
+        });
         return () => {
             unsync();
-        }
+        };
     }, [User, setUser])
     return (
-
         <div className={Styles.majorcontainer}>
             <Modal
                 open={Open}
@@ -133,8 +123,6 @@ function Sidebar({ User, setUser }) {
                     </form>
                 </div>
             </Modal>
-
-
             <Modal
                 open={Login}
                 onClose={() => setLogin(false)}>
@@ -149,9 +137,6 @@ function Sidebar({ User, setUser }) {
 
                             }} />
                         <br />
-
-
-
                         <Input type="password" placeholder="Password.." onChange={(e) => {
 
                             setPassword(e.target.value);
@@ -186,4 +171,4 @@ function Sidebar({ User, setUser }) {
     )
 }
 
-export default Sidebar
+export default Sidebar;

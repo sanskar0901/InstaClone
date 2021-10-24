@@ -54,28 +54,23 @@ function Posts({ User }) {
 
         //     ]
         // }
-    ])
+    ]);
     console.log(Posts);
     useEffect(() => {
         db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-            setPosts(snapshot.docs.map(doc => ({
-                id: doc.id,
-                post: doc.data()
-            })
-
-            ))
-        })
-    }, [])
+            setPosts(
+                snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    post: doc.data()
+                })
+            ));
+        });
+    }, []);
     return (
         <div className={Styles.majorcontainer}>
             {Posts.map(({ id, post }) => (
                 <Card key={id} postid={id} post={post} User={User} />
             ))}
-
-
-
-
-
         </div >
     )
 }
