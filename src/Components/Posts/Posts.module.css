@@ -7,3 +7,12 @@
  justify-content: center;
  /* align-items: center; */
 }
+.san{
+  padding-top:10vh;
+  display: flex;
+ flex-direction: column;
+ gap: 2vh;
+ justify-content: center;
+  color:green;
+  font-size:4px;
+}
