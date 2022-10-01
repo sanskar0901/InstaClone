@@ -11,3 +11,9 @@
 .buttongroup{
     display:flex;
     flex-direction:row;}
+.san{
+   display: flex;
+    margin-top:15vh;
+    flex-direction: row;
+    width: 20vw;
+}
