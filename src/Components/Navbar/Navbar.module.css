@@ -55,6 +55,7 @@
 .options{
     display: flex;
     gap:1vw;
+    align-items: center;
 }
 .profile{
     border-radius: 50%;
