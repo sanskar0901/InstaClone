@@ -4,6 +4,15 @@
     flex-direction: column;
     width: 20vw;
 }
+.majo
+{
+    display: flex;
+    margin-top:10vh;
+    flex-direction: column;
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+}
 .Button{
     display: flex;
     flex-direction: row;
