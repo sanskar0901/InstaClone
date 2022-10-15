@@ -18,6 +18,13 @@ extracode{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.extracode{
+  position:absolute;
+  display:none;
+  flex-direction:column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 extr{
 
   position:absolute;
